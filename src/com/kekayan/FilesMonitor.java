@@ -1,7 +1,7 @@
 package com.kekayan;
 
-import com.kekayan.observer.Observer;
-import com.kekayan.observer.Subject;
+import com.kekayan.interfaces.Observer;
+import com.kekayan.interfaces.Subject;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class FilesMonitor implements Subject {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyAllObservers() {
         for (Observer observer : observers) {
             observer.notifyMe(filescount);
         }
@@ -49,7 +49,7 @@ public class FilesMonitor implements Subject {
                     //if need to notify for each 10sec even no new changes remove the if
                     if(filescount<files.length||filescount>files.length){
                         filescount=files.length;
-                        notifyObservers();
+                        notifyAllObservers();
                     }
 
                 }
