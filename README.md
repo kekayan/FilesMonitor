@@ -16,7 +16,6 @@ Output will be like below .
 When we run our application.It ll send intial files count (Here it's 2 files).
 Thereafter it will only notify for new change in counts .
 
-![alt text](https://ibb.co/nmJ3c6)
-
+![alt text](https://preview.ibb.co/jg7wx6/Capture.png)
 
 
