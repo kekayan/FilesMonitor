@@ -47,7 +47,7 @@ public class FilesMonitor implements Subject {
                 String[] files=dir.list();
                 if (files != null) {
                     //if need to notify for each 10sec even no new changes remove the if
-                    if(filescount<files.length||filescount>files.length){
+                    if (filescount != files.length) {
                         filescount=files.length;
                         notifyAllObservers();
                     }
