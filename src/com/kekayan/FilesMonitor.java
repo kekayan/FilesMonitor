@@ -14,7 +14,7 @@ public class FilesMonitor implements Subject {
 
     public FilesMonitor() {
         observers = new ArrayList<>();
-        filescount=0;
+        filescount=count();
 
     }
 
@@ -42,20 +42,11 @@ public class FilesMonitor implements Subject {
             @Override
             public void run() {
 
-                String folderPath="E:/Test";
-                File dir=new File(folderPath);
-                String[] files=dir.list();
-                if (files != null) {
-                    //if need to notify for each 10sec even no new changes remove the if
-                    if (filescount != files.length) {
-                        filescount=files.length;
-                        notifyAllObservers();
-                    }
-
-                }
-                else
-                {
-                    //todo null
+               int fileslength=count();
+                //if need to notify for each 10sec even no new changes remove the if
+                if (filescount != fileslength) {
+                    filescount=fileslength;
+                    notifyAllObservers();
                 }
             }
         }, 0, 10000);
@@ -63,5 +54,11 @@ public class FilesMonitor implements Subject {
 
     }
 
+    public int count(){
+        String folderPath="E:/Test";
+        File dir=new File(folderPath);
+        String[] files=dir.list();
+        return  files.length;
+    }
 
 }
