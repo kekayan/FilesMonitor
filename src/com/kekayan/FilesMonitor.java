@@ -11,10 +11,11 @@ import java.util.TimerTask;
 public class FilesMonitor implements Subject {
     private ArrayList<Observer> observers;
     private int filescount;
-
-    public FilesMonitor() {
+    private String Path;
+    public FilesMonitor(String path) {
         observers = new ArrayList<>();
-        filescount=count();
+        filescount=count(path);
+        Path=path;
 
     }
 
@@ -42,7 +43,7 @@ public class FilesMonitor implements Subject {
             @Override
             public void run() {
 
-               int fileslength=count();
+               int fileslength=count(Path);
                 //if need to notify for each 10sec even no new changes remove the if
                 if (filescount != fileslength) {
                     filescount=fileslength;
@@ -54,8 +55,8 @@ public class FilesMonitor implements Subject {
 
     }
 
-    public int count(){
-        String folderPath="E:/Test";
+    public int count(String path){
+        String folderPath=path;
         File dir=new File(folderPath);
         String[] files=dir.list();
         return  files.length;

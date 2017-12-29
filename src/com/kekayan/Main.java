@@ -5,7 +5,7 @@ import com.kekayan.interfaces.Observer;
 public class Main {
 
     public static void main(String[] args) {
-        FilesMonitor filesmonitor = new FilesMonitor(); //subject
+        FilesMonitor filesmonitor = new FilesMonitor("E:/Test"); //subject
 
         Observer twitter = new TwitterObserver(); //observer1
         Observer sms = new SmsObserver(); //observer1
