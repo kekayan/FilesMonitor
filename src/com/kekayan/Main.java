@@ -16,5 +16,6 @@ public class Main {
         filesmonitor.addObserver(email);
 
         filesmonitor.monitorfiles();
+        
     }
 }
