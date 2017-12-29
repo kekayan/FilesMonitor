@@ -2,20 +2,15 @@
 An example for Observer Pattern for My Software Architecture & Desgin Assingmnent.
 The Apllication will monitor a particular Folder and notify the file counts to the subscribers.
 
-Inorder to change the listening directory.Goto Files Monitor class and edit line 45
+Inorder to change the listening directory.we need to pass the directory to constructor
 ```java
-String folderPath="E:/Test";
+FilesMonitor filesmonitor = new FilesMonitor("E:/Test"); //subject
 ```
-to
-```java
-String folderPath="your path";
-```
+
 
 Since i used dummy implementations for Sms, Email and Twitter message sending classes.
 Output will be like below .
-When we run our application.It ll send intial files count (Here it's 2 files).
-Thereafter it will only notify for new change in counts .
+When we run our application.whenever change happen it ll notify
 
-![alt text](https://preview.ibb.co/jg7wx6/Capture.png)
 
 
